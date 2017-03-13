@@ -3,6 +3,8 @@ require 'wordpress/wxr/tag'
 module Wordpress
   class WXR
     class Tags
+      include Enumerable
+
       attr_reader :document, :wxr
       private :document, :wxr
 

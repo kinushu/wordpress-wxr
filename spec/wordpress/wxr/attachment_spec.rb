@@ -4,7 +4,7 @@ require 'date'
 
 describe 'Wordpress Attachment' do
   let(:attachment) { attachments.first }
-  let(:attachments) { @wxr.attachments.each.lazy }
+  let(:attachments) { @wxr.attachments }
 
   describe '#url' do
     subject { attachment.url }

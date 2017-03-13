@@ -3,6 +3,8 @@ require 'wordpress/wxr/page'
 module Wordpress
   class WXR
     class Pages
+      include Enumerable
+
       attr_reader :document, :wxr
       private :document, :wxr
 

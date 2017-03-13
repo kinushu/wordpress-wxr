@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Wordpress Author' do
   let(:author) { authors.first }
-  let(:authors) { @wxr.authors.each.lazy }
+  let(:authors) { @wxr.authors }
 
   describe '#id' do
     subject { author.id }

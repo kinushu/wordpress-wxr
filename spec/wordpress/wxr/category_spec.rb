@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Wordpress Category' do
-  let(:category) { categories.each.lazy.first }
+  let(:category) { categories.first }
   let(:categories) { @wxr.categories }
 
   describe '#id' do

@@ -3,6 +3,8 @@ require 'wordpress/wxr/category'
 module Wordpress
   class WXR
     class Categories
+      include Enumerable
+
       attr_reader :document, :wxr
       private :document, :wxr
 

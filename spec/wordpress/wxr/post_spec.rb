@@ -3,7 +3,7 @@ require 'uri'
 
 describe 'Wordpress Post' do
   let(:post) { posts.first }
-  let(:posts) { @wxr.posts.each.lazy }
+  let(:posts) { @wxr.posts }
 
   describe '#title' do
     subject { post.title }

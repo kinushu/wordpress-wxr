@@ -3,6 +3,8 @@ require 'wordpress/wxr/post'
 module Wordpress
   class WXR
     class Posts
+      include Enumerable
+
       attr_reader :document, :wxr
       private :document, :wxr
 

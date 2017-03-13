@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Wordpress Tag' do
   let(:tag) { tags.first }
-  let(:tags) { @wxr.tags.each.lazy }
+  let(:tags) { @wxr.tags }
 
   describe '#id' do
     subject { tag.id }

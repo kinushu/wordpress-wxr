@@ -3,6 +3,8 @@ require 'wordpress/wxr/author'
 module Wordpress
   class WXR
     class Authors
+      include Enumerable
+
       attr_reader :document, :wxr
       private :document, :wxr
 

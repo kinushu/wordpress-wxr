@@ -4,7 +4,7 @@ require 'date'
 
 describe 'Wordpress Page' do
   let(:page) { pages.first }
-  let(:pages) { @wxr.pages.each.lazy }
+  let(:pages) { @wxr.pages }
 
   describe '#title' do
     subject { page.title }

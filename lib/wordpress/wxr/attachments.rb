@@ -3,6 +3,8 @@ require 'wordpress/wxr/attachment'
 module Wordpress
   class WXR
     class Attachments
+      include Enumerable
+
       attr_reader :document, :wxr
       private :document, :wxr
 
