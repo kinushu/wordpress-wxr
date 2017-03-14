@@ -22,7 +22,12 @@ module Wordpress
       end
 
       def find_by(nicename:)
-        each.find { |category| category.nicename == nicename }
+        return if nicename.empty?
+
+        category = nodes.xpath("wp:category_nicename[text() = '#{nicename}']/parent::node()")
+        return unless category
+
+        Category.new(category, wxr)
       end
 
       private

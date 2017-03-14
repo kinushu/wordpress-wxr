@@ -22,7 +22,12 @@ module Wordpress
       end
 
       def find_by(login:)
-        each.find { |author| author.login == login }
+        return if login.empty?
+
+        author = nodes.xpath("wp:author_login[text() = '#{login}']/parent::node()")
+        return unless author
+
+        Author.new(author, wxr)
       end
 
       private
