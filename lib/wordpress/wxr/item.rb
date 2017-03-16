@@ -81,6 +81,14 @@ module Wordpress
         end
       end
 
+      def pages
+        wxr.pages.select { |page| page.parent_id == id }
+      end
+
+      def parent_id
+        Integer(node.xpath('wp:post_parent').text)
+      end
+
       # def comments
       #   node.xpath('wp:comment').map do |comment_node|
       #     Comment.new(comment_node)
