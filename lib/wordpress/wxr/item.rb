@@ -81,6 +81,10 @@ module Wordpress
         end
       end
 
+      def attachments
+        wxr.attachments.select { |attachment| attachment.parent_id == id }
+      end
+
       def pages
         wxr.pages.select { |page| page.parent_id == id }
       end
