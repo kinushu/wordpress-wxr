@@ -89,6 +89,12 @@ module Wordpress
         Integer(node.xpath('wp:post_parent').text)
       end
 
+      def meta
+        node.xpath('wp:postmeta').each_with_object({}) { |meta, hash|
+          hash[meta.xpath('wp:meta_key').text] = meta.xpath('wp:meta_value').text
+        }
+      end
+
       # def comments
       #   node.xpath('wp:comment').map do |comment_node|
       #     Comment.new(comment_node)

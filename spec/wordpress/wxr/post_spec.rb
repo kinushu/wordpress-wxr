@@ -85,4 +85,10 @@ describe 'Wordpress Post' do
   describe '#comments' do
     pending
   end
+
+  describe '#meta' do
+    subject { post.meta }
+    it { is_expected.to include('post_views_count' => '0') }
+    it { is_expected.to include('_edit_last' => '4') }
+  end
 end
