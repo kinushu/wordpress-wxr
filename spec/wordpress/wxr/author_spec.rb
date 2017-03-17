@@ -15,8 +15,7 @@ describe 'Wordpress Author' do
   end
 
   describe '#email' do
-    subject { author.email }
-    it { is_expected.to be_an_instance_of(EmailAddress::Address) }
+    subject { author.email.to_s }
     it { is_expected.to eq('admin@example.com') }
   end
 

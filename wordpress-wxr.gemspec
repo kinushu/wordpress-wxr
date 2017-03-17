@@ -22,6 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
 
-  spec.add_runtime_dependency 'email_address', '~> 0.1.3'
+  spec.add_runtime_dependency 'mail', '~> 2.5.4'
   spec.add_runtime_dependency 'nokogiri'
 end

@@ -1,5 +1,5 @@
 require 'wordpress/wxr/element'
-require 'email_address'
+require 'mail'
 
 module Wordpress
   class WXR
@@ -13,7 +13,7 @@ module Wordpress
       end
 
       def email
-        EmailAddress.new(node.xpath('wp:author_email').text)
+        Mail::Address.new(node.xpath('wp:author_email').text)
       end
 
       def display_name
