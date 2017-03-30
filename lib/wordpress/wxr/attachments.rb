@@ -21,6 +21,15 @@ module Wordpress
         end
       end
 
+      def find_by(id:)
+        return if id.empty?
+
+        attachment = nodes.xpath("wp:post_id[text() = '#{id}']/parent::node()")
+        return unless attachment
+
+        Attachment.new(attachment, wxr)
+      end
+
       private
 
       def nodes
