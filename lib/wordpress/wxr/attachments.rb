@@ -22,9 +22,7 @@ module Wordpress
       end
 
       def find_by(id:)
-        return if id.empty?
-
-        attachment = nodes.xpath("wp:post_id[text() = '#{id}']/parent::node()")
+        attachment = nodes.xpath("wp:post_id[text() = '#{Integer(id)}']/parent::node()")
         return unless attachment
 
         Attachment.new(attachment, wxr)
