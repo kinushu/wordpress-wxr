@@ -25,21 +25,15 @@ module Wordpress
       end
 
       def country
-        serialized_php = node.xpath("//wp:postmeta[wp:meta_key = 'company_details_0_country_of_origin']").at_xpath('wp:meta_value').text
-        unserialized_php = PHP.unserialize(serialized_php)
-        !!unserialized_php['country_name'] && !unserialized_php['country_name'].empty? ? unserialized_php['country_name'] : ''
+        unserialize('company_details_0_country_of_origin', 'country_name')
       end
 
       def state
-        serialized_php = node.xpath("//wp:postmeta[wp:meta_key = 'company_details_0_country_of_origin']").at_xpath('wp:meta_value').text
-        unserialized_php = PHP.unserialize(serialized_php)
-        !!unserialized_php['state_name'] && !unserialized_php['state_name'].empty? ? unserialized_php['state_name'] : ''
+        unserialize('company_details_0_country_of_origin', 'state_name')
       end
 
       def city
-        serialized_php = node.xpath("//wp:postmeta[wp:meta_key = 'company_details_0_country_of_origin']").at_xpath('wp:meta_value').text
-        unserialized_php = PHP.unserialize(serialized_php)
-        !!unserialized_php['city_name'] && !unserialized_php['city_name'].empty? ? unserialized_php['city_name'] : ''
+        unserialize('company_details_0_country_of_origin', 'city_name')
       end
 
       def website
@@ -96,6 +90,14 @@ module Wordpress
 
       def technology_platform
         node.xpath("//wp:postmeta[wp:meta_key = 'company_details_0_technology_platform']").at_xpath('wp:meta_value').text
+      end
+
+      private
+
+      def unserialize(xml_field_name, key)
+        serialized_php = node.xpath("//wp:postmeta[wp:meta_key = '#{xml_field_name}']").at_xpath('wp:meta_value').text
+        unserialized_php = PHP.unserialize(serialized_php)
+        !!unserialized_php[key] && !unserialized_php[key].empty? ? unserialized_php[key] : ''
       end
     end
   end
