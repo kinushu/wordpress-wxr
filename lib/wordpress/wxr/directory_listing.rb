@@ -1,4 +1,5 @@
 require 'wordpress/wxr/item'
+require 'php-serialize'
 
 module Wordpress
   class WXR
@@ -21,6 +22,18 @@ module Wordpress
 
       def contact_phone
         node.xpath("//wp:postmeta[wp:meta_key = 'contact_details_0_phone']").at_xpath('wp:meta_value').text
+      end
+
+      def country
+        unserialize('company_details_0_country_of_origin', 'country_name')
+      end
+
+      def state
+        unserialize('company_details_0_country_of_origin', 'state_name')
+      end
+
+      def city
+        unserialize('company_details_0_country_of_origin', 'city_name')
       end
 
       def website
@@ -77,6 +90,14 @@ module Wordpress
 
       def technology_platform
         node.xpath("//wp:postmeta[wp:meta_key = 'company_details_0_technology_platform']").at_xpath('wp:meta_value').text
+      end
+
+      private
+
+      def unserialize(xml_field_name, key)
+        serialized_php = node.xpath("//wp:postmeta[wp:meta_key = '#{xml_field_name}']").at_xpath('wp:meta_value').text
+        unserialized_php = PHP.unserialize(serialized_php)
+        !!unserialized_php[key] && !unserialized_php[key].empty? ? unserialized_php[key] : ''
       end
     end
   end

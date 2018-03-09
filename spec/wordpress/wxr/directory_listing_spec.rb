@@ -92,6 +92,21 @@ describe 'Wordpress Directory Listing' do
     it { is_expected.to eq('+971 55 235 5835' )}
   end
 
+  describe '#country' do
+    subject { directory_listing.country }
+    it { is_expected.to eq ('United Arab Emirates') }
+  end
+
+  describe '#state' do
+    subject { directory_listing.state }
+    it { is_expected.to eq ('') }
+  end
+
+  describe '#city' do
+    subject { directory_listing.city }
+    it { is_expected.to eq ('') }
+  end
+
   describe '#website' do
     subject { directory_listing.website }
     it { is_expected.to eq('http://www.dreamsstarlimo.com' )}
