@@ -23,4 +23,5 @@ describe Wordpress::WXR do
   include_examples 'a collection of', 'pages', 'Page'
   include_examples 'a collection of', 'posts', 'Post'
   include_examples 'a collection of', 'tags', 'Tag'
+  include_examples 'a collection of', 'directory_listings', 'DirectoryListing'
 end
