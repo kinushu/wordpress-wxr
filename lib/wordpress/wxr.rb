@@ -6,6 +6,7 @@ require 'wordpress/wxr/categories'
 require 'wordpress/wxr/pages'
 require 'wordpress/wxr/posts'
 require 'wordpress/wxr/tags'
+require 'wordpress/wxr/directory_listings'
 require 'wordpress/wxr/version'
 
 module Wordpress
@@ -45,6 +46,10 @@ module Wordpress
 
     def tags
       Tags.new(document, self)
+    end
+
+    def directory_listings
+      DirectoryListings.new(document, self)
     end
   end
 end
