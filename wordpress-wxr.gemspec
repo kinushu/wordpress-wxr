@@ -23,6 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
 
   spec.add_runtime_dependency 'mail', '~> 2.5.4'
-  spec.add_runtime_dependency 'nokogiri'
+  spec.add_runtime_dependency 'nokogiri', '~> 1.5.0'
   spec.add_runtime_dependency 'php-serialize'
 end
