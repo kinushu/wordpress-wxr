@@ -29,18 +29,6 @@ module Wordpress
       end
 
       def state
-        unserialize('company_details_0_state_of_origin', 'state_name')
-      end
-
-      def city
-        unserialize('company_details_0_city_of_origin', 'city_name')
-      end
-
-      def country
-        unserialize('company_details_0_country_of_origin', 'country_name')
-      end
-
-      def state
         unserialize('company_details_0_country_of_origin', 'state_name')
       end
 
