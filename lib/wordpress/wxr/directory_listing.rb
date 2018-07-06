@@ -104,14 +104,6 @@ module Wordpress
           ''
         end
       end
-
-      private
-
-      def unserialize(xml_field_name, key)
-        serialized_php = node.xpath("//wp:postmeta[wp:meta_key = '#{xml_field_name}']").at_xpath('wp:meta_value').text
-        unserialized_php = PHP.unserialize(serialized_php)
-        !!unserialized_php[key] && !unserialized_php[key].empty? ? unserialized_php[key] : ''
-      end
     end
   end
 end
