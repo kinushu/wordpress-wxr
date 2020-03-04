@@ -1,5 +1,5 @@
 module Wordpress
   class WXR
-    VERSION = '0.71'.freeze
+    VERSION = '0.72'.freeze
   end
 end
