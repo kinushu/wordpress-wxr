@@ -8,9 +8,10 @@ module Wordpress
       attr_reader :document, :wxr
       private :document, :wxr
 
-      def initialize(document, wxr)
+      def initialize(document, type, wxr)
         @document = document
         @wxr = wxr
+        @type = type
       end
 
       def each
@@ -24,7 +25,7 @@ module Wordpress
       private
 
       def nodes
-        document.xpath("//item[wp:post_type = 'post']")
+        document.xpath("//item[wp:post_type = '#{@type}']")
       end
     end
   end
