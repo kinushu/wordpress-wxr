@@ -40,8 +40,8 @@ module Wordpress
       Pages.new(document, self)
     end
 
-    def posts
-      Posts.new(document, self)
+    def posts(type = 'post')
+      Posts.new(document, type, self)
     end
 
     def tags
