@@ -51,5 +51,10 @@ module Wordpress
     def directory_listings
       DirectoryListings.new(document, self)
     end
+
+    def root
+      tgt_node = document.css('channel')
+      Item.new(tgt_node, self)
+    end
   end
 end
